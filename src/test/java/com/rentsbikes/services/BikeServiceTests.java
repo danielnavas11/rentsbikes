@@ -29,10 +29,26 @@ public class BikeServiceTests extends AbstractGenericDataJpaTest{
     }
 
     @Test
+    public void deleteBikeByService(){
+        Bike bike = BikeMock.createBasicBike();
+        bikeService.save(bike);
+        bikeService.delete(bike);
+        Assert.assertTrue(bikeService.getAll().size()==0);
+    }
+
+    @Test
     public void saveBikesByService(){
         List<Bike> bikes = BikeMock.createBasicBikeOne();
         bikeService.save(bikes);
         Assert.assertTrue(bikeService.getById(bikes.get(0).getId()).equals(bikes.get(0)));
+    }
+
+    @Test
+    public void deleteBikesByService(){
+        List<Bike> bikes = BikeMock.createBasicBikeOne();
+        bikeService.save(bikes);
+        bikeService.delete(bikes);
+        Assert.assertTrue(bikeService.getAll().size()==0);
     }
 
     @Test

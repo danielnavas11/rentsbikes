@@ -11,7 +11,7 @@ public final class BikeMock {
         bike.setId(1l);
         return bike;
     }
-    private static Bike createBasicBike(int i){
+    public static Bike createBasicBike(int i){
         Bike bike = new Bike();
         bike.setId(new Long(i));
         return bike;

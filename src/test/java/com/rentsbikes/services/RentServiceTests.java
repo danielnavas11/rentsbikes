@@ -30,4 +30,12 @@ public class RentServiceTests extends AbstractGenericDataJpaTest {
         Assert.assertTrue(rentService.getById(rentDomain.getId()).equals(rentDomain));
     }
 
+    @Test
+    public void deleteRentBikePerHourByService(){
+        RentDomain rentDomain = RentDomainMock.createBasicRentPerHour(BikeMock.createBasicBikeOne());
+        rentService.save(rentDomain);
+        rentService.delete(rentDomain);
+        Assert.assertTrue(rentService.getAll().size()==0);
+    }
+
 }

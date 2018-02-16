@@ -12,4 +12,7 @@ public interface BikeService {
     Bike getById(Long id);
 
     List<Bike> getAll();
+    void delete(Bike bike);
+    void delete(List<Bike> bikes);
+
 }
