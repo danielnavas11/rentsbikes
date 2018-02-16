@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <preConditions>
+        <dbms type="h2"/>
+    </preConditions>
+    <changeSet author="dnavas" id="initial-schema-1">
+        <createTable tableName="bike">
+            <column name="id" type="VARCHAR(255)"/>
+        </createTable>
+        <createTable tableName="rent_domain">
+            <column name="id" type="VARCHAR(255)"/>
+            <column name="type_rent" type="VARCHAR(255)"/>
+            <column name="is_promotion" type="BOOL"/>
+            <column name="total_price" type="numeric(19, 4)"/>
+            <column name="price" type="numeric(19, 4)"/>
+            <column name="discount_price" type="numeric(19, 4)"/>
+        </createTable>
+
+        <createTable tableName="rent_domain_bikes">
+            <column name="rent_domains_id" type="VARCHAR(255)"/>
+            <column name="bikes_id" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
